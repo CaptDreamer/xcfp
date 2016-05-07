@@ -41,8 +41,7 @@ namespace X2CFP
         }
         
         public void Dispose() 
-        {
-            
+        {            
         }
 
         public IEnumerator GetEnumerator()

@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "X2CFP", "X2CFP.csproj", "{A56C61B3-2C4A-4DA2-9FE5-75EFA83B92FD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParserTests", "ParserTests\ParserTests.csproj", "{067DB8B3-D72A-4134-95F0-DE9FA0F45823}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A56C61B3-2C4A-4DA2-9FE5-75EFA83B92FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A56C61B3-2C4A-4DA2-9FE5-75EFA83B92FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A56C61B3-2C4A-4DA2-9FE5-75EFA83B92FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A56C61B3-2C4A-4DA2-9FE5-75EFA83B92FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{067DB8B3-D72A-4134-95F0-DE9FA0F45823}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{067DB8B3-D72A-4134-95F0-DE9FA0F45823}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{067DB8B3-D72A-4134-95F0-DE9FA0F45823}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{067DB8B3-D72A-4134-95F0-DE9FA0F45823}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
