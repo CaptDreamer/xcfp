@@ -1,18 +1,33 @@
-XCom Character File Parser
+XCom Character File Parser C# Version
 ==========================
 
-This is a quick python library I cooked up for parsing character data out of
-the character pool files for XCOM 2
+Full credit to gnutrino for writing the original Python Parser.
+You can find the original parser here: https://github.com/gnutrino/xcfp
 
 Usage
 -----
 
-The main class for this libray is CharacterPool, 
+If you're using this in your own code simply add: 
 
-```python
-from xcfp.lib import CharacterPool
+```C#
+using X2CFP;
 
-pool = CharacterPool('/path/to/file.bin'):
-for char in pool.characters():
-	print(char)
+public class Example
+{
+    public static int Main(string[] args)
+    { 
+        CharacterPool pool = new CharacterPool(args[0]);
+        foreach(Character c in pool.Characters())
+        {
+            Console.WriteLine(c.ToString());
+            Console.WriteLine(c.Details());
+        }      
+    }
+}    
 ```
+
+Coming Soon
+-----
+Graphical Interface
+Editing
+Exporting to new Bin file
