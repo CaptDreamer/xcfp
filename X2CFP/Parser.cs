@@ -40,13 +40,9 @@ namespace X2CFP
             Instance._data.Position -= data.Length;
         }
         
-        public void Dispose()
+        public void Dispose() 
         {
-            if (Instance != null)
-            {
-                Instance = null;
-            }
-            GC.SuppressFinalize(this);
+            
         }
 
         public IEnumerator GetEnumerator()
@@ -86,7 +82,7 @@ namespace X2CFP
             // empty files don"t have a CharacterPool property
             if (prop.Name == "PoolFileName")
             {
-                return 1;
+                return 0;
             }
             if (prop.Name != "CharacterPool")
             {

@@ -12,46 +12,63 @@ namespace ParserTests
     public class TestParserRead
     {
         private byte[] _testdata;
-        private Parser _parser;
 
         [TestInitialize]
         public void Initialize()
         {
             byte[] init = { 0x01, 0x02, 0x03, 0x04, 0x05 };
             _testdata = init;
-            _parser = Parser.Instance;
-            _parser.Load("Tests", _testdata);
+            
         }
 
         [TestMethod]
         public void TestParserReadFull()
         {
-            byte[] testassert = _parser.Read(5);
-            CollectionAssert.AreEqual(_testdata, testassert, string.Format("Read Function did not return correct result: Expected: {0}, Actual: {1}", _testdata, testassert));
+            using (Parser parser = new Parser())
+            {
+                parser.Load("Tests", _testdata);
+                byte[] testassert = parser.Read(5);
+                CollectionAssert.AreEqual(_testdata, testassert,
+                    string.Format("Read Function did not return correct result: Expected: {0}, Actual: {1}", _testdata,
+                        testassert));
+            }
         }
 
         [TestMethod]
         public void TestParserReadPartial()
         {
-            byte[] testassert1 = _parser.Read(4);
-            byte[] firstdata = new byte[4];
-            Array.Copy(_testdata, 0, firstdata, 0, 4);
-            CollectionAssert.AreEqual(firstdata, testassert1, string.Format("Read Function did not return correct result: Expected: {0}, Actual: {1}", firstdata, testassert1));
-            byte[] testassert2 = _parser.Read(0);
-            byte[] empty = { };
-            CollectionAssert.AreEqual(empty, testassert2, string.Format("Read Function did not return correct result: Expected: {0}, Actual: {1}", empty, testassert2));
-            byte[] testassert3 = _parser.Read(1);
-            byte[] lastdata = new byte[1];
-            Array.Copy(_testdata, 4, lastdata, 0, 1);
-            CollectionAssert.AreEqual(lastdata, testassert3, string.Format("Read Function did not return correct result: Expected: {0}, Actual: {1}", lastdata, testassert3));
+            using (Parser parser = new Parser())
+            {
+                parser.Load("Tests", _testdata);
+                byte[] testassert1 = parser.Read(4);
+                byte[] firstdata = new byte[4];
+                Array.Copy(_testdata, 0, firstdata, 0, 4);
+                CollectionAssert.AreEqual(firstdata, testassert1,
+                    string.Format("Read Function did not return correct result: Expected: {0}, Actual: {1}", firstdata,
+                        testassert1));
+                byte[] testassert2 = parser.Read(0);
+                byte[] empty = {};
+                CollectionAssert.AreEqual(empty, testassert2,
+                    string.Format("Read Function did not return correct result: Expected: {0}, Actual: {1}", empty,
+                        testassert2));
+                byte[] testassert3 = parser.Read(1);
+                byte[] lastdata = new byte[1];
+                Array.Copy(_testdata, 4, lastdata, 0, 1);
+                CollectionAssert.AreEqual(lastdata, testassert3,
+                    string.Format("Read Function did not return correct result: Expected: {0}, Actual: {1}", lastdata,
+                        testassert3));
+            }
         }
 
         [TestMethod]
         [ExpectedException(typeof(IOException))]
         public void TestParserReadBeyondEof()
         {
-            _parser.Read(6);
-            Console.WriteLine();
+            using (Parser parser = new Parser())
+            {
+                parser.Load("Tests", _testdata);
+                parser.Read(6);
+            }
         }
     }
 
@@ -67,10 +84,11 @@ namespace ParserTests
                 {new byte[] {0x01,0x00,0x00,0x00}, 1},
                 {new byte[] {0xff,0xff,0xff,0xff}, -1}
             };
-            foreach (KeyValuePair<byte[], int> entry in testCases)
+            using (Parser parser = new Parser())
             {
-                using (Parser parser = new Parser())
+                foreach (KeyValuePair<byte[], int> entry in testCases)
                 {
+
                     parser.Load("Tests", entry.Key);
                     int result = parser.ReadInt();
                     Assert.AreEqual(entry.Value, result,

@@ -54,7 +54,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ConsoleApplication1\X2CFP.csproj">
+    <ProjectReference Include="..\X2CFP.csproj">
       <Project>{a56c61b3-2c4a-4da2-9fe5-75efa83b92fd}</Project>
       <Name>X2CFP</Name>
     </ProjectReference>
