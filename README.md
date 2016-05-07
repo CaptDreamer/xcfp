@@ -2,6 +2,7 @@ XCom Character File Parser C# Version
 ==========================
 
 Full credit to gnutrino for writing the original Python Parser.
+
 You can find the original parser here: https://github.com/gnutrino/xcfp
 
 Usage
@@ -28,6 +29,9 @@ public class Example
 
 Coming Soon
 -----
+
 Graphical Interface
+
 Editing
+
 Exporting to new Bin file
